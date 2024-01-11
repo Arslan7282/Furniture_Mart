@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <group android:id="@+id/g1">
+        <item android:id="@+id/setting"
+            android:title="Setting"
+            android:icon="@drawable/baseline_settings_24"/>
+    </group>
+
+    <group android:id="@+id/g2">
+        <item android:id="@+id/cart"
+            android:title="Cart"
+            android:icon="@drawable/baseline_shopping_cart_24"/>
+    </group>
+
+    <group android:id="@+id/g3">
+        <item android:id="@+id/order"
+            android:title="Orders"
+            android:icon="@drawable/order"/>
+    </group>
+
+    <group android:id="@+id/g4">
+        <item android:id="@+id/abo"
+            android:title="About"
+            android:icon="@drawable/about"/>
+    </group>
+
+    <group android:id="@+id/g5">
+        <item android:id="@+id/notif"
+            android:title="Notifications"
+            android:icon="@drawable/baseline_notifications_active_24"/>
+    </group>
+
+
+    <group android:id="@+id/group1">
+        <item android:id="@+id/sharebutton"
+            android:title="Share App"
+            android:icon="@drawable/baseline_mobile_screen_share_24"/>
+
+    </group>
+
+
+    <group android:id="@+id/group2">
+    <item
+        android:id="@+id/logout_accont"
+        android:title="Logout"
+        android:icon="@drawable/baseline_logout_24"/>
+    </group>
+</menu>

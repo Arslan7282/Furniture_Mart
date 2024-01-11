@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/orderdondialogbg"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_close_24"
+        android:layout_gravity="end"
+        />
+
+    <!-- Add your dialog content here -->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/continueanim"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/orderdon"
+        app:lottie_loop="true"
+        />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/thanks"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/thanks"
+        app:lottie_loop="false"
+        android:visibility="gone"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/orderdon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Confirm Order"
+        android:background="@drawable/rippleaffect"
+        android:textColor="@color/white"
+        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continueshopping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rippleaffect"
+            android:textColor="@color/white"
+            android:text="Continue Shopping"
+            android:visibility="gone"/>
+
+</LinearLayout>

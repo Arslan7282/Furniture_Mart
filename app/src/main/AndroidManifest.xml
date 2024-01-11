@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_SOCIAL_STREAM" />
+    <uses-permission android:name="android.permission.WRITE_SOCIAL_STREAM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logo"
+        android:label="Furniture Mart"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FinalYearProject"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".Notification"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Subcategorie"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".About"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Orders"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Buynow"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Addcart"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ItemDetail"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Personalinfo"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Firstpage"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Setting"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Signup"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".forgotpass"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Login"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Splashscreen"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

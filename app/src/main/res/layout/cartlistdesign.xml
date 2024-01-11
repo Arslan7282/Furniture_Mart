@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:background="@drawable/ordersummerybg"
+            android:padding="5dp">
+            <ImageView
+                android:id="@+id/cartimg"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/bedsidetable"
+                />
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingEnd="5dp">
+                <TextView
+                    android:id="@+id/cartname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Name of the Item"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:id="@+id/cartdisc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Short Description"
+                    android:textColor="#3E3E3E"
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/cartprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PKR 4500"
+                    android:textColor="@color/red"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/carttime"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom|end"
+                    android:textSize="10sp"
+                    android:text="asdfsdfsd" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/cancle"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/baseline_close_24"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

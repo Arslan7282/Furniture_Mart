@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer"
+    tools:context=".Firstpage"
+    android:background="@drawable/lightmainbg">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                    <androidx.appcompat.widget.SearchView
+                        android:id="@+id/searchitem"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Enter Item Name"
+                        android:background="@drawable/searchbg"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="5dp"
+                        app:queryHint="Search"
+                        android:backgroundTint="@color/Brown"
+                        app:searchIcon="@drawable/baseline_search_24"
+                        />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Today 30% off Items"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:src="@drawable/back"
+                    android:layout_marginTop="100dp"
+                    />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="190dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-200dp"
+                    android:elevation="15dp"
+                    android:id="@+id/todayofferrecycler"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Categories"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:id="@+id/categorierecycler"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/progrssbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_rawRes="@raw/progressbar"
+                    app:lottie_loop="true"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="-120dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Papular Items"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/papularrecycler"
+                    />
+
+
+
+            </LinearLayout>
+
+
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:menu="@menu/navigation_menu"
+        style="@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        android:id="@+id/nv">
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>
