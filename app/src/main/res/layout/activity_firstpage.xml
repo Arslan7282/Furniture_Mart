@@ -23,20 +23,37 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:weightSum="1.1">
 
                     <androidx.appcompat.widget.SearchView
                         android:id="@+id/searchitem"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Enter Item Name"
                         android:background="@drawable/searchbg"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="10dp"
                         app:queryHint="Search"
                         android:backgroundTint="@color/Brown"
                         app:searchIcon="@drawable/baseline_search_24"
+                        android:layout_weight="1"
                         />
 
+                    <ImageView
+                        android:id="@+id/qrscanner"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/qrscannerlogo"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.1"
+                        />
+
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -45,6 +62,7 @@
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     android:padding="5dp"
+                    android:layout_marginTop="5dp"
                     android:textStyle="bold"
                     />
 

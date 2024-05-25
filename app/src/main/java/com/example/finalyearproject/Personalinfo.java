@@ -2,6 +2,7 @@ package com.example.finalyearproject;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -80,6 +82,12 @@ public class Personalinfo extends AppCompatActivity {
         saveInfoBtn = findViewById(R.id.saveInfoBtn);
 
 
+        user_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dateDialog();
+            }
+        });
 
         editPhotoIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,7 +203,6 @@ public class Personalinfo extends AppCompatActivity {
             FirebaseDatabase firebaseDatabase;
             firebaseDatabase=FirebaseDatabase.getInstance();
             final  StorageReference storageReference=firebaseStorage.getReference().child("profileimage").child(FirebaseAuth.getInstance().getUid());
-
             storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -234,8 +241,6 @@ public class Personalinfo extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-
         if (resultCode == Activity.RESULT_OK) {     //Image Uri will not be null for RESULT_OK
             uri=data.getData();                     // Use Uri object instead of File to avoid storage permissions
             profile_settings_image.setImageURI(uri);
@@ -244,10 +249,17 @@ public class Personalinfo extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Task Cancelled", Toast.LENGTH_SHORT).show();
         }
-
-
-
     }
 
+
+private void dateDialog(){
+        DatePickerDialog dialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                user_date.setText(String.valueOf(year)+"/"+String.valueOf(month)+"/"+String.valueOf(dayOfMonth));
+            }
+        }, 2022, 0, 14);
+        dialog.show();
+}
 
 }

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.Html;
@@ -14,10 +15,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,6 +45,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.journeyapps.barcodescanner.ScanContract;
+import com.journeyapps.barcodescanner.ScanOptions;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -52,6 +57,7 @@ import me.ibrahimsn.lib.BuildConfig;
 public class Firstpage extends AppCompatActivity implements Papularitemadapter.OnNoteListener, Categorieadapter.OnCateListener, Todayofferadapter.OnTodayListener {
 
     TextView specifi1,specifi2,specifi3,specifi4,specifi5,specifi6,price;
+    ImageView qrscanner;
     LottieAnimationView progrssbar;
     SearchView searchitem;
     DrawerLayout dl;
@@ -76,6 +82,7 @@ public class Firstpage extends AppCompatActivity implements Papularitemadapter.O
         setContentView(R.layout.activity_firstpage);
 
         searchitem = findViewById(R.id.searchitem);
+        qrscanner = findViewById(R.id.qrscanner);
         progrssbar = findViewById(R.id.progrssbar);
         price = findViewById(R.id.price);
         specifi1 = findViewById(R.id.specifi1);
@@ -142,6 +149,16 @@ public class Firstpage extends AppCompatActivity implements Papularitemadapter.O
             Toast.makeText(this, "Internet connection is unavailable.", Toast.LENGTH_SHORT).show();
             return;
         }
+
+
+        qrscanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scanCode();
+            }
+        });
+
+
 
 //recycler for Today Offer items view
         Todayoffer_list = new ArrayList<>();
@@ -236,12 +253,42 @@ public class Firstpage extends AppCompatActivity implements Papularitemadapter.O
 
     }
 
+    private void scanCode(){
+        ScanOptions options = new ScanOptions();
+        options.setPrompt("Volume up to flash on");
+        options.setBeepEnabled(true);
+        options.setCaptureActivity(CaptureAct.class);
+        barLaucher.launch(options);
+    }
+
+    ActivityResultLauncher<ScanOptions> barLaucher = registerForActivityResult(new ScanContract(), result->
+    {
+        if (result.getContents() != null) {
+            String scannedContent = result.getContents();
+            if (scannedContent.startsWith("http://") || scannedContent.startsWith("https://")) {
+                // If the scanned content is a URL, open it in Chrome
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(scannedContent));
+                startActivity(browserIntent);
+            } else {
+                // If not a URL, display the result in an AlertDialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(Firstpage.this);
+                builder.setTitle("Result");
+                builder.setMessage(scannedContent);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
+            }
+        }
+    });
+
 
     private void filterData(String newText) {
     }
 
     private void refreshData() {
-
     }
 
     private void dialog() {
